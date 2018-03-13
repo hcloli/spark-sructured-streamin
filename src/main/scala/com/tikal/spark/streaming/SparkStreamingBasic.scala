@@ -33,7 +33,6 @@ object SparkStreamingBasic {
     //Write output to stream
     val query = transformed
         .writeStream
-        .trigger(Trigger.ProcessingTime("10 seconds"))
         .outputMode("append") //Can be one of "complete", "update" or "append"
         .format("console")
         .option("truncate", "false")
